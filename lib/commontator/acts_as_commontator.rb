@@ -7,7 +7,7 @@ module Commontator
       base.is_commontator = false
       base.extend(ClassMethods)
     end
-    
+
     module ClassMethods
       def acts_as_commontator(options = {})
         class_eval do
@@ -17,12 +17,12 @@ module Commontator
 
           has_many :comments,      as: :creator,
                                    class_name: 'Commontator::Comment'
-          has_many :subscriptions, as: :subscriber,
+          has_many :commontator_subscriptions, as: :subscriber,
                                    class_name: 'Commontator::Subscription',
                                    dependent: :destroy
         end
       end
-      
+
       alias_method :acts_as_commonter, :acts_as_commontator
       alias_method :acts_as_commentator, :acts_as_commontator
       alias_method :acts_as_commenter, :acts_as_commontator

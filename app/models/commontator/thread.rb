@@ -91,7 +91,7 @@ module Commontator
 
     def subscription_for(subscriber)
       return nil if !subscriber || !subscriber.is_commontator
-      subscriber.subscriptions.where(thread_id: self.id).first
+      subscriber.commontator_subscriptions.where(thread_id: self.id).first
     end
 
     def subscribe(subscriber)
